@@ -1,7 +1,7 @@
 # Prerequisites
 *.d
 
-# Compiled Object files
+# Object files
 *.slo
 *.lo
 *.o
@@ -17,34 +17,29 @@
 # Debugger Files
 *.pdb
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-*.so.*
-
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
+# Libraries / binaries
 *.a
 *.lib
-
-# Executables
+*.dll
 *.exe
 *.out
 *.app
+
+# System libraries
+*.so
+*.dylib
+*.so.*
+
+# Fortran
+*.mod
+*.smod
 
 # Build directories
 build/
 Build/
 build-*/
 
-# CMake generated files
+# CMake
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
@@ -61,9 +56,29 @@ compile_commands.json
 # vcpkg
 vcpkg_installed/
 
-# debug information files
+# debug info
 *.dwo
 
-# test output & cache
+# test output
 Testing/
 .cache/
+
+# Visual Studio
+.vs/
+*.user
+*.VC.db
+*.VC.opendb
+*.VC.VC.opendb
+*.suo
+*.userosscache
+*.sln.docstates
+
+Debug/
+Release/
+x64/
+x86/
+ipch/
+
+*.aps
+*.ncb
+*.opendb
