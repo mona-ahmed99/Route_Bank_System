@@ -1,11 +1,11 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <cctype>
 using namespace std;
-
 class Validation
 {
-public :
+public:
 	// Check if the name is between 3 and 20 characters and contains only alphabetic characters and spaces
 	static bool isValidName(const string& name) {
 		// Check if the name length is between 3 and 20 characters
@@ -51,7 +51,6 @@ public :
 		}
 		return true;
 	}
-
-	
 };
+
 
