@@ -41,6 +41,7 @@ public:
             this->salary = 5000;
         }
     }
+//getter function
     int getid() {
         return id;
     }
@@ -53,7 +54,7 @@ public:
     double getsalary() {
         return salary;
     }
-
+    //display function
     void display() {
         cout << "  Admin information \n ";
         cout << " ID : " << id << endl;
