@@ -41,5 +41,25 @@ public:
             this->salary = 5000;
         }
     }
+    int getid() {
+        return id;
+    }
+    string getname() {
+        return name;
+    }
+    string getpassword() {
+        return password;
+    }
+    double getsalary() {
+        return salary;
+    }
+
+    void display() {
+        cout << "  Admin information \n ";
+        cout << " ID : " << id << endl;
+        cout << " NAME : " << name << endl;
+        cout << " SALARY : : " << salary << endl;
+        cout << " PASSWORD : " << password << endl;
+    }
 
 };
