@@ -8,49 +8,31 @@ protected:
     string password;
 
 public:
-    Person() {
-        name = "admin";
-        id = 0;
-        password = "12345678";
+    Person(): id(0), name(""), password("") {}
+
+    Person(string name, int id, string password): name(name), id(id), password(password) {}
+
+    void setName(string name) {
+		this->name = name;
     }
 
-    Person(string name, int id, string password) {
-        this->id = id;
-        setname(name);
-        setpassword(password);
-    }
-
-    void setname(string name) {
-        if (Validation::isValidName(name)) {
-            this->name = name;
-        }
-        else {
-            cout << "Invalid Name" << endl;
-        }
-    }
-
-    void setid(int id) {
+    void setId(int id) {
         this->id = id;
     }
 
-    void setpassword(string password) {
-        if (Validation::isValidPassword(password)) {
-            this->password = password;
-        }
-        else {
-            cout << "Invalid password" << endl;
-        }
+    void setPassword(string password) {
+		this->password = password;
     }
 
-    string getname() {
+    string getName() {
         return name;
     }
 
-    int getid() {
+    int getId() {
         return id;
     }
 
-    string getpassword() {
+    string getPassword() {
         return password;
     }
 };

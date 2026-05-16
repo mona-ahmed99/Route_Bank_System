@@ -6,53 +6,40 @@ class Client :
 private:
 	double balance;
 public:
-	Client() {
-		balance = 1500;
-	}
+	Client(): Person(), balance(1500) {}
+	Client(int id, string name, string password, double balance) : Person(name, id, password), balance(balance) {}
+	//setters balance
 	void setBalance(double balance) {
-		if (Validation::isValidBalance(balance)) {
-			this->balance = balance;
-		}
-		else {
-			cout << "Invalid balance. Minimum balance is 1500" << endl;
-		}
+		this->balance = balance;
 	}
+	//gettters balance
 	double getBalance() {
 		return balance;
 	}
+	//deposit
 	void deposit(double amount) {
-		if (amount > 0) {
 			balance += amount;
 			cout << "Deposite Done Succesfully" << endl;
-		}
-		else {
-			cout << "Invalid amount" << endl;
-
-		}
 	}
+
+	//withdraw
 	void withdraw(double amount) {
-		if (amount > 0 && balance - amount >= 1500) {
 			balance -= amount;
 			cout << "Withdraw Done Succesfully" << endl;
-		}
-		else {
-			cout << "Invalid Withdraw Amount. Minimum Balance Must Remain 1500" << endl;
-		}
 	}
+	//transfer
 	void transferTo(double amount, Client& recipient) {
-		if (amount > 0 && balance - amount >= 1500) {
 			balance -= amount;
 			recipient.deposit(amount);
 			cout << "Transfer Done Successfully." << endl;
-		}
-		else {
-			cout << "Transfer failed. Minimum Balance Must Remain 1500." << endl;
-		}
 	}
+	//check balance
 	void checkBalance() {
 		cout << "Current Balance: " << balance << endl;
 	}
+	//display client info
 	void Display() {
+		cout << "Client Information:" << endl;
 		cout << "ID: " << id << endl;
 		cout << "Name: " << name << endl;
 		cout << "Password: " << password << endl;
