@@ -37,7 +37,7 @@ public:
 	}
 
 	// Check if the balance is at least 1500
-	static bool isValidBalance(double balance) {
+	static bool isValidBalance(const double& balance) {
 		if (balance < 1500) {
 			return false;
 		}
@@ -45,7 +45,7 @@ public:
 	}
 
 	// Check if the salary is at least 5000
-	static bool isValidSalary(double salary) {
+	static bool isValidSalary(const double& salary) {
 		if (salary < 5000) {
 			return false;
 		}
@@ -53,7 +53,7 @@ public:
 	}
 
 	//check if the amount is positive
-	static bool isValidAmount(double amount) {
+	static bool isValidAmount(const double& amount) {
 		if (amount <= 0) {
 			return false;
 		}
