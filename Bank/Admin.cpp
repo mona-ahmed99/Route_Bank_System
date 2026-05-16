@@ -1,1 +1,4 @@
-#include "Admin.h"
+#pragma once
+class Admin
+{
+};
