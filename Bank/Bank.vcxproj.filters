@@ -18,13 +18,5 @@
     <ClCompile Include="Bank.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Admin.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Admin.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
