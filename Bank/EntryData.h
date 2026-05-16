@@ -6,7 +6,7 @@ using namespace std;
 class EntryData
 {
 public:
-	// Getters
+	// get name from user and validate it using Validation class
 	const string getName() const { 
 		string name;
 		cin >> name;
@@ -17,6 +17,8 @@ public:
 		}	
 		return name;
 	}
+
+	// get password from user and validate it using Validation class
 	const string getPassword() const { 
 		
 		string password;
@@ -27,6 +29,7 @@ public:
 		}
 		return password; 
 	}
+	// get balance from user and validate it using Validation class
 	const double getBalance() const {
 		double balance;
 		cin >> balance;
@@ -36,6 +39,8 @@ public:
 		}
 		return balance; 
 	}
+
+	// get salary from user and validate it using Validation class
 	const double getSalary() const {
 
 		double salary;
@@ -47,6 +52,8 @@ public:
 		
 		return salary; 
 	}
+
+	//get amount from user and validate it using Validation class
 	const double getAmount() const {
 		
 		double amount;
