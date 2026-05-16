@@ -59,6 +59,14 @@ public:
 		}
 		return true;
 	}
+
+	//check if amount is less than or equal to balance	
+	static bool canWithdraw(const double& amount, const double& balance) {
+		if (amount > balance) {
+			return false;
+		}
+		return true;
+	}
 };
 
 
