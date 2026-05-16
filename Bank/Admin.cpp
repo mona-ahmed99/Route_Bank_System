@@ -1,4 +1,1 @@
-#pragma once
-class Admin
-{
-};
+#include "Admin.h"
