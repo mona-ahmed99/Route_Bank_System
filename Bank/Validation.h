@@ -51,6 +51,14 @@ public:
 		}
 		return true;
 	}
+
+	//check if the amount is positive
+	static bool isValidAmount(double amount) {
+		if (amount <= 0) {
+			return false;
+		}
+		return true;
+	}
 };
 
 
