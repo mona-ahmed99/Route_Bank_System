@@ -2,6 +2,5 @@
 #include "Screen.h"
 
 int main() {
-	cout << "hello from main";
 	Screen::runApp();
 }
