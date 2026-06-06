@@ -11,7 +11,12 @@ public:
 
 	//setters salary
 	void setSalary(double salary) {
+		if (Validation::isValidSalary(salary)) {
 			this->salary = salary;
+		}
+		else {
+			this->salary = 0;
+		}
 	}
 	//gettters salary
 	double getSalary() {
