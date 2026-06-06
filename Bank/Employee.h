@@ -20,9 +20,7 @@ public:
 	//display employee info
 	void Display() {
 		cout<<"Employee Information:"<<endl;
-		cout << "ID: " << id << endl;
-		cout << "Name: " << name << endl;
-		cout << "Password: " << password << endl;
+		Person::Display();
 		cout << "Salary: " << salary << endl;
 	}
 };

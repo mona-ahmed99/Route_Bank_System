@@ -40,9 +40,7 @@ public:
 	//display client info
 	void Display() {
 		cout << "Client Information:" << endl;
-		cout << "ID: " << id << endl;
-		cout << "Name: " << name << endl;
-		cout << "Password: " << password << endl;
+		Person::Display();
 		cout << "Balance: " << balance << endl;
 	}
 };

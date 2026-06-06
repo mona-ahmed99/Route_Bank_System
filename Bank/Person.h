@@ -35,5 +35,11 @@ public:
     string getPassword() {
         return password;
     }
+
+	void Display() {
+		cout << "ID: " << id << endl;
+		cout << "Name: " << name << endl;
+		cout << "Password: " << password << endl;
+	}
 };
 
