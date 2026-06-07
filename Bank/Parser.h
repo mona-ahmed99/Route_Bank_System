@@ -20,6 +20,7 @@ public:
         for (int i = 0; i < line.length(); i++)
         {
             if (line[i] == '-')
+
             {
                 data.push_back(temp);
                 temp = "";
