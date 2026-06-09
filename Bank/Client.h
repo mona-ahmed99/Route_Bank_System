@@ -1,5 +1,6 @@
 #pragma once
 #include "Person.h"
+#include "Validation.h"
 class Client :
 	public Person
 {
@@ -10,7 +11,12 @@ public:
 	Client(int id, string name, string password, double balance) : Person(name, id, password), balance(balance) {}
 	//setters balance
 	void setBalance(double balance) {
-		this->balance = balance;
+		if (Validation::isValidBalance(balance)) {
+			this->balance = balance;
+		}
+		else {
+			this->balance = 0;
+		}
 	}
 	//gettters balance
 	double getBalance() {
@@ -18,20 +24,35 @@ public:
 	}
 	//deposit
 	void deposit(double amount) {
+		if (Validation::isValidAmount(amount)) {
 			balance += amount;
 			cout << "Deposite Done Succesfully" << endl;
+		}
+		else {
+			cout << "Invalid deposit amount." << endl;
+		}
 	}
 
 	//withdraw
 	void withdraw(double amount) {
+		if (Validation::isValidAmount(amount)&& Validation::canWithdraw(amount, balance)) {
 			balance -= amount;
 			cout << "Withdraw Done Succesfully" << endl;
+		}
+		else {
+			cout << "Invalid withdraw amount." << endl;
+		}
 	}
 	//transfer
 	void transferTo(double amount, Client& recipient) {
+		if (Validation::isValidAmount(amount) && Validation::canWithdraw(amount, balance)) {
 			balance -= amount;
 			recipient.deposit(amount);
 			cout << "Transfer Done Successfully." << endl;
+		}
+		else {
+			cout << "Invalid transfer amount." << endl;
+		}
 	}
 	//check balance
 	void checkBalance() {
@@ -40,9 +61,7 @@ public:
 	//display client info
 	void Display() {
 		cout << "Client Information:" << endl;
-		cout << "ID: " << id << endl;
-		cout << "Name: " << name << endl;
-		cout << "Password: " << password << endl;
+		Person::Display();
 		cout << "Balance: " << balance << endl;
 	}
 };

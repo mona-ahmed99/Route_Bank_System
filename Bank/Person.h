@@ -13,7 +13,12 @@ public:
     Person(string name, int id, string password): name(name), id(id), password(password) {}
 
     void setName(string name) {
-		this->name = name;
+		if (Validation::isValidName(name)) {
+			this->name = name;
+		}
+		else {
+			this->name = "";
+		}
     }
 
     void setId(int id) {
@@ -21,7 +26,12 @@ public:
     }
 
     void setPassword(string password) {
-		this->password = password;
+		if (Validation::isValidPassword(password)) {
+			this->password = password;
+		}
+		else {
+			this->password = "";
+		}
     }
 
     string getName() {
@@ -35,5 +45,11 @@ public:
     string getPassword() {
         return password;
     }
+
+	void Display() {
+		cout << "ID: " << id << endl;
+		cout << "Name: " << name << endl;
+		cout << "Password: " << password << endl;
+	}
 };
 

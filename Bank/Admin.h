@@ -14,10 +14,7 @@ public:
 	//display admin info
 	void Display() {
 		cout << "Admin Information:" << endl;
-		cout << "ID: " << id << endl;
-		cout << "Name: " << name << endl;
-		cout << "Password: " << password << endl;
-		cout << "Salary: " << salary << endl;
+		Employee::Display();
 	}
 
 };

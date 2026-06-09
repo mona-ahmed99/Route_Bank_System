@@ -144,6 +144,8 @@
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Employee.cpp" />
     <ClCompile Include="EntryData.cpp" />
+    <ClCompile Include="FilesHelper.cpp" />
+    <ClCompile Include="Parser.cpp" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="Validation.cpp" />
@@ -153,8 +155,19 @@
     <ClInclude Include="Client.h" />
     <ClInclude Include="Employee.h" />
     <ClInclude Include="EntryData.h" />
+    <ClInclude Include="FilesHelper.h" />
+    <ClInclude Include="Parser.h" />
+    <ClInclude Include="Person.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="Validation.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Admins.txt" />
+    <Text Include="Clients.txt" />
+    <Text Include="Employees.txt" />
+    <Text Include="LastAdminId.txt" />
+    <Text Include="LastClientId.txt" />
+    <Text Include="LastEmployeeId.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
