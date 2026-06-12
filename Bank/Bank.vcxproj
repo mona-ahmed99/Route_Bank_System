@@ -142,6 +142,7 @@
     <ClCompile Include="Admin.cpp" />
     <ClCompile Include="Bank.cpp" />
     <ClCompile Include="Client.cpp" />
+    <ClCompile Include="DataSourceInterface.cpp" />
     <ClCompile Include="Employee.cpp" />
     <ClCompile Include="EntryData.cpp" />
     <ClCompile Include="FilesHelper.cpp" />
@@ -153,6 +154,7 @@
   <ItemGroup>
     <ClInclude Include="Admin.h" />
     <ClInclude Include="Client.h" />
+    <ClInclude Include="DataSourceInterface.h" />
     <ClInclude Include="Employee.h" />
     <ClInclude Include="EntryData.h" />
     <ClInclude Include="FilesHelper.h" />
