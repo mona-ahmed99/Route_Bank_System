@@ -1,5 +1,9 @@
 #pragma once
 #include "Person.h"
+#include "Client.h"
+#include "FilesHelper.h"
+#include <vector>
+#include <fstream>
 class Employee :
 	public Person
 {

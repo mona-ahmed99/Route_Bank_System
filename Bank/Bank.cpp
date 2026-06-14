@@ -51,5 +51,6 @@ int main() {
 	for (Client c : clients)
 	{
 		c.Display();
+		cout << "-------------------" << endl;
 	}
 }
