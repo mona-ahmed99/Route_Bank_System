@@ -37,20 +37,22 @@ int main() {
 
 
 	//test file manager 
-	FileManager fm;
+	//FileManager fm;
 
-	Client c;
-	c.setName("Mona");
-	c.setPassword("12345678");
-	c.setBalance(5000);
+	//Client c;
+	//c.setName("Mona");
+	//c.setPassword("12345678");
+	//c.setBalance(5000);
 
-	fm.addClient(c);
+	//fm.addClient(c);
 
-	vector<Client> clients = fm.getAllClients();
+	//vector<Client> clients = fm.getAllClients();
 
-	for (Client c : clients)
-	{
-		c.Display();
-		cout << "-------------------" << endl;
-	}
+	//for (Client c : clients)
+	//{
+	//	c.Display();
+	//	cout << "-------------------" << endl;
+	//}
+
+	
 }
