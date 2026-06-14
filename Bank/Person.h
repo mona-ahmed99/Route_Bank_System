@@ -1,5 +1,7 @@
 #pragma once
 #include "Validation.h"
+#include <iostream>
+#include <string>
 class Person
 {
 protected:
