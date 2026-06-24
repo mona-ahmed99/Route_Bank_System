@@ -30,9 +30,12 @@
     <ClCompile Include="EntryData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< Updated upstream
     <ClCompile Include="Parser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+=======
+>>>>>>> Stashed changes
     <ClCompile Include="Person.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -42,6 +45,7 @@
     <ClCompile Include="Validation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< Updated upstream
     <ClCompile Include="DataSourceInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -51,6 +55,8 @@
     <ClCompile Include="FilesHelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+=======
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h">
@@ -65,12 +71,15 @@
     <ClInclude Include="EntryData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< Updated upstream
     <ClInclude Include="FilesHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Parser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+=======
+>>>>>>> Stashed changes
     <ClInclude Include="Person.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -80,6 +89,7 @@
     <ClInclude Include="Validation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< Updated upstream
     <ClInclude Include="DataSourceInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -94,5 +104,7 @@
     <Text Include="LastAdminId.txt" />
     <Text Include="LastClientId.txt" />
     <Text Include="LastEmployeeId.txt" />
+=======
+>>>>>>> Stashed changes
   </ItemGroup>
 </Project>
