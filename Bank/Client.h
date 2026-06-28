@@ -1,15 +1,26 @@
 #pragma once
+
 #include "Person.h"
 #include "Validation.h"
-class Client :
-	public Person
+#include <vector>
+
+using namespace std;
+
+class Client : public Person
 {
 private:
 	double balance;
+
 public:
-	Client(): Person(), balance(1500) {}
-	Client(int id, string name, string password, double balance) : Person(name, id, password), balance(balance) {}
-	//setters balance
+	static vector<Client> allClients;
+
+	Client() : Person(), balance(1500) {}
+
+	Client(int id, string name, string password, double balance)
+		: Person(name, id, password), balance(balance) {
+	}
+
+	// setters balance
 	void setBalance(double balance) {
 		if (Validation::isValidBalance(balance)) {
 			this->balance = balance;
@@ -18,34 +29,41 @@ public:
 			this->balance = 0;
 		}
 	}
-	//gettters balance
+
+	// getters balance
 	double getBalance() {
 		return balance;
 	}
-	//deposit
+
+	// deposit
 	void deposit(double amount) {
 		if (Validation::isValidAmount(amount)) {
 			balance += amount;
-			cout << "Deposite Done Succesfully" << endl;
+			cout << "Deposit Done Successfully" << endl;
 		}
 		else {
 			cout << "Invalid deposit amount." << endl;
 		}
 	}
 
-	//withdraw
+	// withdraw
 	void withdraw(double amount) {
-		if (Validation::isValidAmount(amount)&& Validation::canWithdraw(amount, balance)) {
+		if (Validation::isValidAmount(amount) &&
+			Validation::canWithdraw(amount, balance)) {
+
 			balance -= amount;
-			cout << "Withdraw Done Succesfully" << endl;
+			cout << "Withdraw Done Successfully" << endl;
 		}
 		else {
 			cout << "Invalid withdraw amount." << endl;
 		}
 	}
-	//transfer
+
+	// transfer
 	void transferTo(double amount, Client& recipient) {
-		if (Validation::isValidAmount(amount) && Validation::canWithdraw(amount, balance)) {
+		if (Validation::isValidAmount(amount) &&
+			Validation::canWithdraw(amount, balance)) {
+
 			balance -= amount;
 			recipient.deposit(amount);
 			cout << "Transfer Done Successfully." << endl;
@@ -54,15 +72,16 @@ public:
 			cout << "Invalid transfer amount." << endl;
 		}
 	}
-	//check balance
+
+	// check balance
 	void checkBalance() {
 		cout << "Current Balance: " << balance << endl;
 	}
-	//display client info
+
+	// display client info
 	void Display() {
 		cout << "Client Information:" << endl;
 		Person::Display();
 		cout << "Balance: " << balance << endl;
 	}
 };
-

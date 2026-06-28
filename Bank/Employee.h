@@ -1,19 +1,27 @@
 #pragma once
+
 #include "Person.h"
 #include "Client.h"
 #include "FilesHelper.h"
 #include <vector>
-#include <fstream>
-class Employee :
-	public Person
+
+using namespace std;
+
+class Employee : public Person
 {
 protected:
 	double salary;
-public:
-	Employee() : Person(), salary(5000) {}
-	Employee(int id, string name, string password, double salary) : Person(name, id, password), salary(salary) {}
 
-	//setters salary
+public:
+	static vector<Employee> allEmployees;
+
+	Employee() : Person(), salary(5000) {}
+
+	Employee(int id, string name, string password, double salary)
+		: Person(name, id, password), salary(salary) {
+	}
+
+	// setters salary
 	void setSalary(double salary) {
 		if (Validation::isValidSalary(salary)) {
 			this->salary = salary;
@@ -22,59 +30,58 @@ public:
 			this->salary = 0;
 		}
 	}
-	//gettters salary
+
+	// getters salary
 	double getSalary() {
 		return salary;
 	}
-	//display employee info
+
+	// display employee info
 	void Display() {
 		cout << "Employee Information:" << endl;
 		Person::Display();
 		cout << "Salary: " << salary << endl;
 	}
 
-	//add client
+	// add client
 	void addClient(Client& client) {
+		Client::allClients.push_back(client);
 		FilesHelper::saveClient(client);
 	}
-	//search client
+
+	// search client
 	Client* searchClient(int id) {
-		static vector<Client> clients;
-		clients = FilesHelper::getClients();
-		for (int i = 0; i < clients.size(); i++) {
-			if (clients[i].getId() == id) {
-				return &clients[i];
+		for (int i = 0; i < Client::allClients.size(); i++) {
+			if (Client::allClients[i].getId() == id) {
+				return &Client::allClients[i];
 			}
 		}
 		return nullptr;
 	}
-	//list client
+
+	// list clients
 	void listClient() {
-		vector<Client> clients;
-		clients = FilesHelper::getClients();
-		for (int i = 0; i < clients.size(); i++) {
-			clients[i].Display();
+		for (int i = 0; i < Client::allClients.size(); i++) {
+			Client::allClients[i].Display();
 			cout << endl;
 		}
 	}
-	//edit client
+
+	// edit client
 	void editClient(int id, string name, string password, double balance) {
-		vector<Client> clients;
-		clients = FilesHelper::getClients();
-		for (int i = 0; i < clients.size(); i++) {
-			if (clients[i].getId() == id) {
-				clients[i].setName(name);
-				clients[i].setPassword(password);
-				clients[i].setBalance(balance);
+		for (int i = 0; i < Client::allClients.size(); i++) {
+			if (Client::allClients[i].getId() == id) {
+				Client::allClients[i].setName(name);
+				Client::allClients[i].setPassword(password);
+				Client::allClients[i].setBalance(balance);
 			}
 		}
-		ofstream file("Clients.txt");
-		for (int i = 0; i < clients.size(); i++) {
-			file << clients[i].getId() << "-" 
-				 << clients[i].getName() << "-"
-				 << clients[i].getPassword() << "-"
-				 << clients[i].getBalance() << endl;
+
+		// rewrite file after edit
+		FilesHelper::clearFile("Clients.txt", "LastClientId.txt");
+
+		for (int i = 0; i < Client::allClients.size(); i++) {
+			FilesHelper::saveClient(Client::allClients[i]);
 		}
-		file.close();
 	}
 };

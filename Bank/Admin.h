@@ -1,67 +1,68 @@
 #pragma once
+
 #include "Employee.h"
 #include "FilesHelper.h"
 #include <vector>
-#include <fstream>
+
+using namespace std;
+
 class Admin : public Employee
 {
 public:
+	static vector<Admin> allAdmins;
 
-	////// Default Constructor
+	// Default Constructor
+	Admin() : Employee() {}
 
-	Admin() : Employee() {
-
+	Admin(int id, string name, string password, double salary)
+		: Employee(id, name, password, salary) {
 	}
-	Admin(int id, string name, string password, double salary) : Employee(id, name, password, salary) {}
 
-	//display admin info
+	// display admin info
 	void Display() {
 		cout << "Admin Information:" << endl;
 		Employee::Display();
 	}
 
-	//add employee
+	// add employee
 	void addEmployee(Employee& employee) {
+		Employee::allEmployees.push_back(employee);
 		FilesHelper::saveEmployee(employee);
 	}
-	//search employee
+
+	// search employee
 	Employee* searchEmployee(int id) {
-		static vector<Employee> employees;
-		employees = FilesHelper::getEmployees();
-		for (int i = 0; i < employees.size(); i++) {
-			if (employees[i].getId() == id) {
-				return &employees[i];
+		for (int i = 0; i < Employee::allEmployees.size(); i++) {
+			if (Employee::allEmployees[i].getId() == id) {
+				return &Employee::allEmployees[i];
 			}
 		}
 		return nullptr;
 	}
-	//list employee
+
+	// list employees
 	void listEmployee() {
-		vector<Employee> employees;
-		employees = FilesHelper::getEmployees();
-		for (int i = 0; i < employees.size(); i++) {
-			employees[i].Display();
+		for (int i = 0; i < Employee::allEmployees.size(); i++) {
+			Employee::allEmployees[i].Display();
 			cout << endl;
 		}
 	}
-	//edit employee
+
+	// edit employee
 	void editEmployee(int id, string name, string password, double salary) {
-		vector<Employee> employees;
-		employees = FilesHelper::getEmployees();
-		for (int i = 0; i < employees.size(); i++) {
-			if (employees[i].getId() == id) {
-				employees[i].setName(name);
-				employees[i].setPassword(password);
-				employees[i].setSalary(salary);
+		for (int i = 0; i < Employee::allEmployees.size(); i++) {
+			if (Employee::allEmployees[i].getId() == id) {
+				Employee::allEmployees[i].setName(name);
+				Employee::allEmployees[i].setPassword(password);
+				Employee::allEmployees[i].setSalary(salary);
 			}
 		}
-		ofstream file("Employees.txt");
-		for (int i = 0; i < employees.size(); i++) {
-			file << employees[i].getId() << "-"
-				<< employees[i].getName() << "-"
-				<< employees[i].getPassword() << "-"
-				<< employees[i].getSalary() << endl;
+
+		// rewrite file after edit
+		FilesHelper::clearFile("Employees.txt", "LastEmployeeId.txt");
+
+		for (int i = 0; i < Employee::allEmployees.size(); i++) {
+			FilesHelper::saveEmployee(Employee::allEmployees[i]);
 		}
-		file.close();
 	}
 };
