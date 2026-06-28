@@ -1,101 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="Admin.cpp" />
+    <ClCompile Include="Bank.cpp" />
+    <ClCompile Include="Client.cpp" />
+    <ClCompile Include="DataSourceInterface.cpp" />
+    <ClCompile Include="Employee.cpp" />
+    <ClCompile Include="EntryData.cpp" />
+    <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="FilesHelper.cpp" />
+    <ClCompile Include="Parser.cpp" />
+    <ClCompile Include="Person.cpp" />
+    <ClCompile Include="Screen.cpp" />
+    <ClCompile Include="Validation.cpp" />
+    <ClCompile Include="ClientManager.cpp" />
+    <ClCompile Include="EmployeeManager.cpp" />
+    <ClCompile Include="AdminManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Bank.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Admin.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Client.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Employee.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EntryData.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-<<<<<<< Updated upstream
-    <ClCompile Include="Parser.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-=======
->>>>>>> Stashed changes
-    <ClCompile Include="Person.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Screen.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Validation.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-<<<<<<< Updated upstream
-    <ClCompile Include="DataSourceInterface.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FileManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FilesHelper.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-=======
->>>>>>> Stashed changes
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Admin.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Client.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Employee.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EntryData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-<<<<<<< Updated upstream
-    <ClInclude Include="FilesHelper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Parser.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-=======
->>>>>>> Stashed changes
-    <ClInclude Include="Person.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Screen.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Validation.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-<<<<<<< Updated upstream
-    <ClInclude Include="DataSourceInterface.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FileManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClInclude Include="Admin.h" />
+    <ClInclude Include="Client.h" />
+    <ClInclude Include="DataSourceInterface.h" />
+    <ClInclude Include="Employee.h" />
+    <ClInclude Include="EntryData.h" />
+    <ClInclude Include="FileManager.h" />
+    <ClInclude Include="FilesHelper.h" />
+    <ClInclude Include="Parser.h" />
+    <ClInclude Include="Person.h" />
+    <ClInclude Include="Screen.h" />
+    <ClInclude Include="Validation.h" />
+    <ClInclude Include="ClientManager.h" />
+    <ClInclude Include="EmployeeManager.h" />
+    <ClInclude Include="AdminManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Admins.txt" />
@@ -104,7 +40,5 @@
     <Text Include="LastAdminId.txt" />
     <Text Include="LastClientId.txt" />
     <Text Include="LastEmployeeId.txt" />
-=======
->>>>>>> Stashed changes
   </ItemGroup>
 </Project>

@@ -1,206 +1,95 @@
 #pragma once
+#include <iostream>
+#include "ClientManager.h"
+#include "EmployeeManager.h"
+#include "AdminManager.h"
+using namespace std;
 
-#include "Client.h"
-#include "Employee.h"
-#include "Admin.h"
-#include "EntryData.h"
-
-class Screen
-{
-private:
-
-    // Display Main Menu
-    static void displayMenu() {
-        cout << "1. Login as Client\n";
-        cout << "2. Login as Employee\n";
-        cout << "3. Login as Admin\n";
-        cout << "4. Exit\n";
-    }
-
+class Screen {
 public:
-
+	// Display the bank name
+    static void bankName() {
+        cout << "\n========== Route Bank System ==========" << endl;
+    }
+	// Display the welcome message
+    static void welcome() {
+        bankName();
+        cout << "Welcome to the Route Bank System!\n";
+    }
+	// Display the login options
+    static void loginOptions() {
+        cout << "\nLogin Options:" << endl;
+        cout << "1. Client" << endl;
+        cout << "2. Employee" << endl;
+        cout << "3. Admin" << endl;
+        cout << "4. Exit" << endl;
+    }
+	// Get the login type from the user
+    static int loginAs() {
+        int c;
+        loginOptions();
+        cout << "Choose login type: ";
+        cin >> c;
+        return c;
+    }
+	// Display invalid option message
+    static void invalid(int c) {
+        cout << "Invalid option: " << c << "\n";
+    }
+	// Display logout message
+    static void logout() {
+        cout << "You have been logged out.\n";
+    }
+	// Handle the login process based on the user type
+    static void loginScreen(int c) {
+        if (c == 1) {
+            int id; string password;
+            cout << "\n--- Client Login ---\nID: "; cin >> id;
+            cout << "Password: "; cin >> password;
+            Client* client = ClientManager::login(id, password);
+            if (client) {
+                cout << "Login successful!\n";
+                ClientManager::clientOptions(client);
+            } else {
+                cout << "Login failed.\n";
+            }
+        } else if (c == 2) {
+            int id; string password;
+            cout << "\n--- Employee Login ---\nID: "; cin >> id;
+            cout << "Password: "; cin >> password;
+            Employee* emp = EmployeeManager::login(id, password);
+            if (emp) {
+                cout << "Login successful!\n";
+                EmployeeManager::employeeOptions(emp);
+            } else {
+                cout << "Login failed.\n";
+            }
+        } else if (c == 3) {
+            int id; string password;
+            cout << "\n--- Admin Login ---\nID: "; cin >> id;
+            cout << "Password: "; cin >> password;
+            Admin* admin = AdminManager::login(id, password);
+            if (admin) {
+                cout << "Login successful!\n";
+                AdminManager::AdminOptions(admin);
+            } else {
+                cout << "Login failed.\n";
+            }
+        } else if (c == 4) {
+            cout << "Exiting...\n";
+        } else {
+            invalid(c);
+        }
+    }
+	// Run the main application loop
     static void runApp() {
-
-        cout << "========== BANK SYSTEM ==========\n press to continue";
-
-        cin.get();
-
-        system("cls");
-
-        int choice;
-
-        do {
-
-            displayMenu();
-
-            cout << "Enter your choice:\n ";
-            cin >> choice;
-
-            system("cls");
-
-            switch (choice) {
-
-                // ================= CLIENT =================
-
-            case 1: {
-
-                cout << "========== CLIENT TEST ==========\n";
-
-                int id;
-
-                cout << "Enter Client ID:\n ";
-                cin >> id;
-
-                string name = EntryData::getName();
-
-                string password = EntryData::getPassword();
-
-                double balance = EntryData::getBalance();
-
-                // Create Client Object
-                Client c1(id, name, password, balance);
-
-                cout << "\nClient Created Successfully\n";
-
-                c1.Display();
-
-                // ===== Deposit =====
-
-                cout << "\n========== DEPOSIT TEST ==========\n";
-
-                double amount = EntryData::getAmount();
-
-                c1.deposit(amount);
-
-                c1.checkBalance();
-
-                // ===== Withdraw =====
-
-                cout << "\n========== WITHDRAW TEST ==========\n";
-
-                amount = EntryData::getAmount();
-
-                // validation before calling withdraw
-                while (!Validation::canWithdraw(amount, c1.getBalance())) {
-
-                    cout << "Insufficient Balance.\n";
-
-                    amount = EntryData::getAmount();
-                }
-
-                c1.withdraw(amount);
-
-                c1.checkBalance();
-
-                // ===== Transfer =====
-
-                cout << "\n========== TRANSFER TEST ==========\n";
-
-                // Recipient Client
-                Client c2(2, "Ahmed", "12345678", 5000);
-
-                cout << "\nRecipient Client:\n";
-
-                c2.Display();
-
-                amount = EntryData::getAmount();
-
-                // validation before transfer
-                while (!Validation::canWithdraw(amount, c1.getBalance())) {
-
-                    cout << "Insufficient Balance.\n";
-
-                    amount = EntryData::getAmount();
-                }
-
-                c1.transferTo(amount, c2);
-
-                cout << "\nSender Data After Transfer:\n";
-
-                c1.Display();
-
-                cout << "\nRecipient Data After Transfer:\n";
-
-                c2.Display();
-
-                break;
-            }
-
-                  // ================= EMPLOYEE =================
-
-            case 2: {
-
-                cout << "========== EMPLOYEE TEST ==========\n";
-
-                int id;
-
-                cout << "Enter Employee ID:\n ";
-                cin >> id;
-
-                string name = EntryData::getName();
-
-                string password = EntryData::getPassword();
-
-                double salary = EntryData::getSalary();
-
-                // Create Employee Object
-                Employee e(id, name, password, salary);
-
-                cout << "\nEmployee Created Successfully\n";
-
-                e.Display();
-
-                break;
-            }
-
-                  // ================= ADMIN =================
-
-            case 3: {
-
-                cout << "========== ADMIN TEST ==========\n";
-
-                int id;
-
-                cout << "Enter Admin ID:\n ";
-                cin >> id;
-
-                string name = EntryData::getName();
-
-                string password = EntryData::getPassword();
-
-                double salary = EntryData::getSalary();
-
-                // Create Admin Object
-                Admin a(id, name, password, salary);
-
-                cout << "\nAdmin Created Successfully\n";
-
-                a.Display();
-
-                break;
-            }
-
-                  // ================= EXIT =================
-
-            case 4:
-
-                cout << "Exiting Program...\n";
-
-                break;
-
-                // ================= INVALID =================
-
-            default:
-
-                cout << "Invalid Choice.\n";
-            }
-
-            cout << "\nPress Enter to continue...";
-            cin.ignore();
-            cin.get();
-
-            system("cls");
-
-        } while (choice != 4);
+        welcome();
+        while (true) {
+            int c = loginAs();
+            if (c == 4) break;
+            loginScreen(c);
+            logout();
+        }
+        cout << "Thank you for using Route Bank System!\n";
     }
 };
