@@ -12,7 +12,7 @@ private:
 	double balance;
 
 public:
-	static vector<Client> allClients;
+	static vector<Client> clients;
 
 	Client() : Person(), balance(1500) {}
 
@@ -20,7 +20,6 @@ public:
 		: Person(name, id, password), balance(balance) {
 	}
 
-	// setters balance
 	void setBalance(double balance) {
 		if (Validation::isValidBalance(balance)) {
 			this->balance = balance;
@@ -29,13 +28,9 @@ public:
 			this->balance = 0;
 		}
 	}
-
-	// getters balance
 	double getBalance() {
 		return balance;
 	}
-
-	// deposit
 	void deposit(double amount) {
 		if (Validation::isValidAmount(amount)) {
 			balance += amount;
@@ -45,12 +40,9 @@ public:
 			cout << "Invalid deposit amount." << endl;
 		}
 	}
-
-	// withdraw
 	void withdraw(double amount) {
 		if (Validation::isValidAmount(amount) &&
 			Validation::canWithdraw(amount, balance)) {
-
 			balance -= amount;
 			cout << "Withdraw Done Successfully" << endl;
 		}
@@ -58,12 +50,9 @@ public:
 			cout << "Invalid withdraw amount." << endl;
 		}
 	}
-
-	// transfer
 	void transferTo(double amount, Client& recipient) {
 		if (Validation::isValidAmount(amount) &&
 			Validation::canWithdraw(amount, balance)) {
-
 			balance -= amount;
 			recipient.deposit(amount);
 			cout << "Transfer Done Successfully." << endl;
@@ -72,14 +61,10 @@ public:
 			cout << "Invalid transfer amount." << endl;
 		}
 	}
-
-	// check balance
 	void checkBalance() {
 		cout << "Current Balance: " << balance << endl;
 	}
-
-	// display client info
-	void Display() {
+	void Display() const {
 		cout << "Client Information:" << endl;
 		Person::Display();
 		cout << "Balance: " << balance << endl;

@@ -58,7 +58,7 @@ void EmployeeManager::searchForClient(Employee* employee) {
     Client* found = employee->findClient(clientId);
     if (found != nullptr) {
         cout << "Client Found:" << endl;
-        found->printInfo();
+        found->Display();
     } else {
         cout << "Client with ID " << clientId << " not found." << endl;
     }
@@ -79,7 +79,7 @@ void EmployeeManager::editClientInfo(Employee* employee) {
         return;
     }
     cout << "Current Info:" << endl;
-    client->printInfo();
+    client->Display();
     string newName;
     double newBalance;
     cin.ignore();

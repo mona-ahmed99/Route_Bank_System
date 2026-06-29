@@ -51,7 +51,7 @@ public:
         return password;
     }
 
-	void Display() {
+	void Display() const {
 		cout << "ID: " << id << endl;
 		cout << "Name: " << name << endl;
 		cout << "Password: " << password << endl;

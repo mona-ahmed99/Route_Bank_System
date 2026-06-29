@@ -1,6 +1,8 @@
 #include "AdminManager.h"
+#include "Admin.h"
 #include <iostream>
 using namespace std;
+
 
 void AdminManager::printEmployeeMenu() {
     cout << "\n========== Admin Menu ==========" << endl;
@@ -8,7 +10,7 @@ void AdminManager::printEmployeeMenu() {
 }
 
 Admin* AdminManager::login(int id, std::string password) {
-    for (auto& a : Admin::admins) {
+    for (auto& a : Admin::allAdmins) {
         if (a.getId() == id && a.getPassword() == password) {
             return &a;
         }
