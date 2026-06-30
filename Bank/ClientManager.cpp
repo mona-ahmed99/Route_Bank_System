@@ -118,3 +118,4 @@ bool ClientManager::clientOptions(Client* client) {
         }
     } while (true);
 }
+
