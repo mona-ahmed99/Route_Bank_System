@@ -75,18 +75,19 @@ bool ClientManager::clientOptions(Client* client) {
             int id;
             cout << "Enter Recipient ID: ";
             cin >> id;
-            double amount = EntryData::getAmount();
-            bool found = false;
+            Client* recipient = nullptr;
             for (int i = 0; i < clients.size(); i++) {
                 if (clients[i].getId() == id) {
-                    client->transferTo(amount, clients[i]);
-                    found = true;
+                    recipient = &clients[i];
                     break;
                 }
             }
-            if (!found) {
+            if (recipient == nullptr) {
                 cout << "Client Not Found.\n";
+                break;
             }
+            double amount = EntryData::getAmount();
+            client->transferTo(amount, *recipient);
             for (int i = 0; i < clients.size(); i++) {
                 if (clients[i].getId() == client->getId()) {
                     clients[i] = *client;
