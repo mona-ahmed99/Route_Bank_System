@@ -1,5 +1,6 @@
 #include "AdminManager.h"
 #include "Admin.h"
+#include "EntryData.h"
 #include <iostream>
 using namespace std;
 
@@ -31,19 +32,10 @@ Admin* AdminManager::login(int id, std::string password) {
 
 void AdminManager::newClient(Admin* admin) {
     cout << "\n--- Add New Client ---" << endl;
-    int clientId;
-    string name, password;
-    double balance;
-    cout << "Enter Client ID: ";
-    cin >> clientId;
-    cin.ignore();
-    cout << "Enter Client Name: ";
-    getline(cin, name);
-    cout << "Enter Client Password: ";
-    cin >> password;
-    cout << "Enter Client Balance: ";
-    cin >> balance;
-    Client newClient(clientId, name, password, balance);
+    string name = EntryData::getName();
+    string password = EntryData::getPassword();
+    double balance = EntryData::getBalance();
+    Client newClient(0, name, password, balance);
     admin->addClient(newClient);
     cout << "Client added successfully!" << endl;
 }
@@ -79,37 +71,20 @@ void AdminManager::editClientInfo(Admin* admin) {
     }
     cout << "Current Info:" << endl;
     client->Display();
-    string newName;
-    double newBalance;
-    cin.ignore();
-    cout << "Enter New Name (leave blank to keep current): ";
-    getline(cin, newName);
-    if (!newName.empty()) {
-        client->setName(newName);
-    }
-    cout << "Enter New Balance (-1 to keep current): ";
-    cin >> newBalance;
-    if (newBalance >= 0) {
-        client->setBalance(newBalance);
-    }
+    cout << "Enter new details:" << endl;
+    string newName = EntryData::getName();
+    double newBalance = EntryData::getBalance();
+    client->setName(newName);
+    client->setBalance(newBalance);
     cout << "Client info updated successfully!" << endl;
 }
 
 void AdminManager::newEmployee(Admin* admin) {
     cout << "\n--- Add New Employee ---" << endl;
-    int empId;
-    string name, password;
-    double salary;
-    cout << "Enter Employee ID: ";
-    cin >> empId;
-    cin.ignore();
-    cout << "Enter Employee Name: ";
-    getline(cin, name);
-    cout << "Enter Employee Password: ";
-    cin >> password;
-    cout << "Enter Employee Salary: ";
-    cin >> salary;
-    Employee emp(empId, name, password, salary);
+    string name = EntryData::getName();
+    string password = EntryData::getPassword();
+    double salary = EntryData::getSalary();
+    Employee emp(0, name, password, salary);
     admin->addEmployee(emp);
     cout << "Employee added successfully!" << endl;
 }
@@ -145,25 +120,11 @@ void AdminManager::editEmployeeInfo(Admin* admin) {
     }
     cout << "Current Info:" << endl;
     emp->Display();
-    string newName, newPassword;
-    double newSalary;
-    cin.ignore();
-    cout << "Enter New Name (leave blank to keep current): ";
-    getline(cin, newName);
-    if (!newName.empty()) {
-        emp->setName(newName);
-    }
-    cout << "Enter New Password (leave blank to keep current): ";
-    getline(cin, newPassword);
-    if (newPassword.empty()) {
-        newPassword = emp->getPassword();
-    }
-    cout << "Enter New Salary (-1 to keep current): ";
-    cin >> newSalary;
-    if (newSalary < 0) {
-        newSalary = emp->getSalary();
-    }
-    admin->editEmployee(empId, newName.empty() ? emp->getName() : newName, newPassword, newSalary);
+    cout << "Enter new details:" << endl;
+    string newName = EntryData::getName();
+    string newPassword = EntryData::getPassword();
+    double newSalary = EntryData::getSalary();
+    admin->editEmployee(empId, newName, newPassword, newSalary);
     cout << "Employee info updated successfully!" << endl;
 }
 

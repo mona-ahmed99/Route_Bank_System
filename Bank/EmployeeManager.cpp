@@ -1,4 +1,5 @@
 #include "EmployeeManager.h"
+#include "EntryData.h"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -20,19 +21,10 @@ void EmployeeManager::newClient(Employee* employee) {
         return;
     }
     cout << "\n--- Add New Client ---" << endl;
-    int clientId;
-    string name, password;
-    double balance;
-    cout << "Enter Client ID: ";
-    cin >> clientId;
-    cin.ignore();
-    cout << "Enter Client Name: ";
-    getline(cin, name);
-    cout << "Enter Client Password: ";
-    cin >> password;
-    cout << "Enter Client Balance: ";
-    cin >> balance;
-    Client newClient(clientId, name, password, balance);
+    string name = EntryData::getName();
+    string password = EntryData::getPassword();
+    double balance = EntryData::getBalance();
+    Client newClient(0, name, password, balance);
     employee->addClient(newClient);
     cout << "Client added successfully!" << endl;
 }
@@ -80,19 +72,11 @@ void EmployeeManager::editClientInfo(Employee* employee) {
     }
     cout << "Current Info:" << endl;
     client->Display();
-    string newName;
-    double newBalance;
-    cin.ignore();
-    cout << "Enter New Name (leave blank to keep current): ";
-    getline(cin, newName);
-    if (!newName.empty()) {
-        client->setName(newName);
-    }
-    cout << "Enter New Balance (-1 to keep current): ";
-    cin >> newBalance;
-    if (newBalance >= 0) {
-        client->setBalance(newBalance);
-    }
+    cout << "Enter new details:" << endl;
+    string newName = EntryData::getName();
+    double newBalance = EntryData::getBalance();
+    client->setName(newName);
+    client->setBalance(newBalance);
     cout << "Client info updated successfully!" << endl;
 }
 
