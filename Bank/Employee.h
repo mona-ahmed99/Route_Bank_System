@@ -36,6 +36,7 @@ public:
 	}
 	void addClient(Client& client) {
 		FilesHelper::saveClient(client);
+		Client::clients.push_back(client);
 	}
 	void printAllClients();
 	Client* findClient(int id);

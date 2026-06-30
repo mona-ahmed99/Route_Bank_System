@@ -26,8 +26,8 @@ public:
 
 	// add employee
 	void addEmployee(Employee& employee) {
-		Employee::employees.push_back(employee);
 		FilesHelper::saveEmployee(employee);
+		Employee::employees.push_back(employee);
 	}
 
 	// search employee
