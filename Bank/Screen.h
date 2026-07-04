@@ -4,7 +4,6 @@
 #include "EmployeeManager.h"
 #include "AdminManager.h"
 using namespace std;
-
 class Screen {
 public:
 	// Display the bank name
